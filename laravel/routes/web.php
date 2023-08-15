@@ -25,7 +25,14 @@ Route::get('/', HomeController::class);
 Route::get('/login', LoginController::class);
 Route::get('/logout', LogoutController::class);
 
-Route::get('/test', function() {})->middleware('auth');
-Route::get('/dashboard', function() {}) -> middleware('auth');
+Route::get('/test', function()
+{
+    return view('test');
+}) -> middleware('auth');
+
+Route::get('/dashboard', function()
+{
+    return view('dashboard');
+}) -> middleware('auth');
 
 Route::get('/coba', [CobaController::class, 'index'])->name('coba');
