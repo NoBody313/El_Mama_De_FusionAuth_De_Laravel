@@ -5,6 +5,9 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\LogoutController;
 use Illuminate\Support\Facades\Route;
 use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
+use App\Http\Controllers\CobaController;
+use App\Http\Controllers\TestingController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -20,13 +23,9 @@ use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 Route::get('/', HomeController::class);
 
 Route::get('/login', LoginController::class);
+Route::get('/logout', LogoutController::class);
 
+Route::get('/test', function() {})->middleware('auth');
+Route::get('/dashboard', function() {}) -> middleware('auth');
 
-Route::view('/test', 'test');
-Route::get('/logout' ,LogoutController::class);
-
-// Route::get('dashboard', function() {
-//     return view('dashboard');
-// });
-
-Route::view('/dashboard', 'dashboard');
+Route::get('/coba', [CobaController::class, 'index'])->name('coba');

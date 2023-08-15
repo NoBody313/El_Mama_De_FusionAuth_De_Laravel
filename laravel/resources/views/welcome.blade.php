@@ -103,7 +103,7 @@
 
         @auth
             <script src="/js/fusionauth.js"></script>
-            <script>FusionAuth("{{ $baseUrl }}");</script>
+            {{-- <script>FusionAuth("{{ $baseUrl }}");</script> --}}
         @endauth
     </body>
 </html>

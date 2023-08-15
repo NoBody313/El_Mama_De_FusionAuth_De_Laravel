@@ -8,7 +8,6 @@
     <!-- Styles -->
     @vite('resources/css/app.css')
 
-
     <style>
         pre {
             white-space: pre-wrap;
@@ -105,25 +104,35 @@
                 </div>
 
                 <div class="flex space-x-4 mt-8">
+                
+                    <button class="w-48 px-4 py-3 bg-gray-100 rounded-full shadow-2xl text-center">
+                        <a href="/logout">
+                            Log out
+                        </a>
+                    </button>
+
                     <button class="w-48 px-4 py-3 bg-gray-100 rounded-full shadow-2xl text-center">
                         <a href="http://localhost/dashboard">
                             Go To Dashboard
                         </a>
                     </button>
 
-                    <button class="w-48 px-4 py-3 bg-gray-100 rounded-full shadow-2xl text-center">
-                        <a href="http://localhost/logout">
-                            Log out
+                    @else
+                    {{-- <button class="w-48 px-4 py-3 bg-gray-100 rounded-full shadow-2xl text-center">
+                        <a href="{{ $loginUrl }}">
+                            Login
                         </a>
-                    </button>
+                    </button> --}}
+
+                    
+                    @endauth
                 </div>
-                @endauth
             </div>
         </div>
     </div>
 
     @auth
-    <script src="/js/fusionauth.js"></script>
-    {{-- <script>FusionAuth("{{ $baseUrl }}");</script> --}}
+        <script src="/js/fusionauth.js"></script>
+        {{-- <script>FusionAuth("{{ $baseUrl }}");</script> --}}
     @endauth
 </body>
