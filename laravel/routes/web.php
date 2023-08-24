@@ -36,10 +36,3 @@ Route::get('/dashboard', function()
 }) -> middleware('auth');
 
 Route::get('/coba', [CobaController::class, 'index'])->name('coba');
-
-Route::domain('http://127.0.0.1:8000/admin/drinks')->group(function () {
-    // Route definitions for website1
-    return view('test');
-    Route::get('/admin/drinks', 'Website1Controller@index');
-    // ...
-}) -> middleware('auth');
